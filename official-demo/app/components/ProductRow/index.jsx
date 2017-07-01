@@ -5,7 +5,7 @@ class ProductRow extends Component {
     const nameTemp = this.props.stocked ?
       this.props.name :
       <span style={{ color: 'red' }}>
-        ${this.props.name}
+        {this.props.name}
       </span>;
 
     return (

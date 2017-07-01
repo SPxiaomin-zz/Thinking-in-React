@@ -21,16 +21,10 @@ module.exports = {
   devtool: 'eval-source-map',
   module: {
     rules: [
-      // {
-      //   test: /\.jsx?$/,
-      //   use: 'eslint-loader',
-      //   enforce: 'pre',
-      //   include: APP_PATH,
-      // },
       {
         test: /\.jsx?$/,
         use: 'babel-loader',
-        include: APP_PATH,
+        include: APP_PATH
       },
       {
         test: /\.scss$/,
@@ -39,7 +33,7 @@ module.exports = {
           { loader: 'css-loader' },
           { loader: 'sass-loader' }
         ],
-        include: APP_PATH,
+        include: APP_PATH
       }
     ]
   },
@@ -47,7 +41,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     modules: [
       APP_PATH,
-      "node_modules"
+      'node_modules'
     ]
   },
   plugins: [
