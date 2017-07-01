@@ -1,0 +1,26 @@
+import React, { Component } from 'react';
+
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      a: 1,
+    };
+  }
+
+  render() {
+    return (
+      <form>
+        <input type="text" placeholder="Search..." />
+        <p>
+          <input type="checkbox" />
+          {' '}
+          Only show products in stock
+        </p>
+      </form>
+    );
+  }
+}
+
+export default SearchBar;
