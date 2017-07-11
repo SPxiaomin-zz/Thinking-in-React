@@ -3,15 +3,16 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
   render() {
     return (
-      <div>
-        <p>
-          <input type="text" placeholder="Search..." />
-        </p>
+      <form>
         <div>
-          <input id="inStockCheckBox" type="checkbox" />
-          <label htmlFor="inStockCheckBox">Only show products in stock</label>
+          <input type="text" placeholder="Search..." value={this.props.filterText} />
         </div>
-      </div>
+        <p>
+          <input id="inStockCheckBox" type="checkbox" checked={this.props.inStockOnly} />
+          {' '}
+          <label htmlFor="inStockCheckBox">Only show products in stock</label>
+        </p>
+      </form>
     );
   }
 }

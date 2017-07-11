@@ -4,8 +4,7 @@ class ProductCategoryRow extends Component {
   render() {
     return (
       <tr>
-        {/* TODO: 在 tbody 中一样可以使用 th ? */}
-        <th colSpan="2">Sporting Goods</th>
+        <th colSpan="2">{this.props.category}</th>
       </tr>
     );
   }
