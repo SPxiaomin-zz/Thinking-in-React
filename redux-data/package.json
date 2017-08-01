@@ -2,6 +2,7 @@
   "name": "redux-data",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://www.weather.com.cn",
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^15.6.1",

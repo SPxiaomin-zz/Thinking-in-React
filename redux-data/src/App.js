@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as Status from './status.js';
+import * as Status from './status';
 
-const CITY_CODES = {
-  '北京': 101010100,
-  '上海': 101020100,
-  '广州': 101280101,
-  '深圳': 101280601
-};
+import { fetchWeather } from './actions.js';
 
 class App extends Component {
   componentDidMount() {
-    // TODO: stop writing here
+    this.props.getWeather();
   }
 
   render() {
@@ -47,8 +42,9 @@ App.propTypes = {
   highestTemp: PropTypes.string
 };
 
-const mapStateTopProps = (state) => {
-  const weatherData = state.weather;
+const mapStateToProps = (state) => {
+  const weatherData = state;
+  console.log(weatherData);
 
   return {
     status: weatherData.status,
@@ -57,6 +53,17 @@ const mapStateTopProps = (state) => {
     lowestTemp: weatherData.temp1,
     highestTemp: weatherData.temp2
   };
-}
+};
 
-export default connect(mapStateTopProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getWeather: () => {
+      dispatch(fetchWeather(101020100));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
