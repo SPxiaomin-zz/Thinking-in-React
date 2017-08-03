@@ -34,14 +34,6 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  status: PropTypes.string.isRequired,
-  cityName: PropTypes.string,
-  weather: PropTypes.string,
-  lowestTemp: PropTypes.string,
-  highestTemp: PropTypes.string
-};
-
 const mapStateToProps = (state) => {
   const weatherData = state;
   console.log(weatherData);
