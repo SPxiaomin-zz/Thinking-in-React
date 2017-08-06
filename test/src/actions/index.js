@@ -1,4 +1,4 @@
-import { FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE } from './types';
+import { FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE } from '../utils/types';
 
 export const fetchWeatherStarted = () => ({
   type: FETCH_STARTED

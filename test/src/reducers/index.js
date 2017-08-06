@@ -1,3 +1,23 @@
-// TODO: stop thinking here
-// - 为什么要使用单独的status.js文件——是为了减少两个地方的编码失误&提高效率么。
-// - 然后开始编码(status.js单独写到一个utils目录中)。
+import { FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE } from '../utils/types';
+import * as Status from '../utils/status';
+
+export default (state = { status: Status.LOADING }, action) => {
+  switch (action.type) {
+    case FETCH_STARTED:
+      return {
+        status: Status.LOADING
+      };
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        status: Status.SUCCESS,
+        ...action.result
+      };
+    case FETCH_FAILURE:
+      return {
+        status: Status.FAILURE
+      };
+    default:
+      return state;
+  }
+};
