@@ -4,25 +4,29 @@ import ProductCategoryRow from '../ProductCategoryRow';
 import ProductRow from '../ProductRow';
 
 class ProductTable extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      products: [{
-        category: 'Sporting Goods',
-        price: '$49.99',
-        stocked: true,
-        name: 'Footerball'
-      }]
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //
+  //   this.state = {
+  //     products: [{
+  //       category: 'Sporting Goods',
+  //       price: '$49.99',
+  //       stocked: true,
+  //       name: 'Footerball'
+  //     }]
+  //   };
+  // }
 
   render() {
-    let products = this.state.products;
+    let products = this.props.products;
     let rows = [];
     let lastCategory = 'null';
 
     products.forEach((product) => {
+      if (!product.name.includes(this.props.filterText) || (!product.stocked && this.props.inStockOnly)) {
+        return ;
+      }
+
       if (product.category !== lastCategory) {
         rows.push(<ProductCategoryRow category={product.category} key={product.category} />);
         lastCategory = product.category;
